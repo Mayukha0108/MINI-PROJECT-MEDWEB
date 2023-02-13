@@ -1,0 +1,179 @@
+<!-- This is GUI for Breast Cancer Detection Application Using Machine Learning Classifer -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction of Breast Cancer</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+  <!-- <style>
+    /* CSS code for button */
+    body {
+      background-image: url('static/images/world.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    /* CSS code for button */
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 20px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+  </style> -->
+
+</head>
+
+<body>
+
+    
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark py-3" id="navbar">
+            <a class="navbar-brand" href="index" >MED-WEB</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto navbar-nav mr-auto" href="diagnosis">Diagnosis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto navbar-nav mr-auto" href="features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto navbar-nav mr-auto" href="predict">Predict</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link scrollto" href="team">Team</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+         
+  <!-- Show Indian AI Hospital banner-->
+  <div>
+    <img src="static/images/doctor4.jpg" class="w3-border w3-padding" alt="Indian AI Hospital" style="width:100%; margin-top: 80px;">
+  </div>
+ 
+ 
+ <div text-align="center" >
+	
+    <!-- Get input for predict the cancer -->
+    <center>
+  <form action="submit" method="post">
+      <h1 style="margin-top: 50px; font-family: sans-serif; margin-bottom: 20px;"> Enter the Tumor Feature values: </h1>
+
+      <table align="center">
+
+        <tr>
+          <td text-align="right"> Mean Radius:</td>
+          <td text-align="left"><input type="text" name="mean_radius" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Mean Perimeter:</td>
+          <td text-align="left"><input type="text" name="mean_perimeter" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Mean Area:</td>
+          <td text-align="left"><input type="text" name="mean_area" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Mean Compactness:</td>
+          <td text-align="left"><input type="text" name="mean_compactness" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Mean Concavity:</td>
+          <td text-align="left"><input type="text" name="mean_concavity" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Mean Concave Points:</td>
+          <td text-align="left"><input type="text" name="mean_concave_points" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Radius Error:</td>
+          <td text-align="left"><input type="text" name="radius_error" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Perimeter Error:</td>
+          <td text-align="left"><input type="text" name="perimeter_error" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Area Error:</td>
+          <td text-align="left"><input type="text" name="area_error" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Worst Radius:</td>
+          <td text-align="left"><input type="text" name="worst_radius" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Worst Perimeter:</td>
+          <td text-align="left"><input type="text" name="worst_perimeter" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Worst Area:</td>
+          <td text-align="left"><input type="text" name="worst_area" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Worst Compactness:</td>
+          <td text-align="left"><input type="text" name="worst_compactness" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Worst Concavity:</td>
+          <td text-align="left"><input type="text" name="worst_concavity" required="required" /></td>
+        </tr>
+
+        <tr>
+          <td text-align="right"> Worst Concave Points:</td>
+          <td text-align="left"><input type="text" name="worst_concave_points" required="required" /></td>
+        </tr>
+      </table>
+
+      <div class="button_cont" align-text="center" style="margin-top: 20px; margin-bottom: 20px;">
+        <button type="submit" class="button"><strong>Predict Cancer</strong></button></a>
+    </div>
+      
+
+    </center>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <center>
+   <h1 style="font-family:sans-serif; font-size: 40px; padding-bottom: 10px;">{{ p }}</h1>
+   
+       </center> 
+   </div>
+</div>
+
+
+</body>
+</html>
